@@ -1,0 +1,184 @@
+# Copyright (C) 2025 Hamed Zargham
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Hz Maintenance Mode 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hz-maintenance-mode\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-07T12:14:51+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: hz-maintenance-mode\n"
+
+#. Plugin Name of the plugin
+#: hz-maintenance-mode.php
+msgid "Hz Maintenance Mode"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: hz-maintenance-mode.php
+msgid "https://github.com/Hamed-Zargham/hz-maintenance-mode-plugin-wordpress"
+msgstr ""
+
+#. Description of the plugin
+#: hz-maintenance-mode.php
+msgid "Temporarily restrict public access to your site during updates, maintenance, or development."
+msgstr ""
+
+#. Author of the plugin
+#: hz-maintenance-mode.php
+msgid "Hamed Zargham"
+msgstr ""
+
+#. Author URI of the plugin
+#: hz-maintenance-mode.php
+msgid "https://github.com/Hamed-Zargham"
+msgstr ""
+
+#: admin/partials/admin-settings.php:2
+msgid "Maintenance Mode Settings"
+msgstr ""
+
+#: admin/partials/admin-settings.php:6
+msgid "General Options"
+msgstr ""
+
+#: admin/partials/admin-settings.php:7
+msgid "Social Networks Options"
+msgstr ""
+
+#: admin/partials/admin-settings.php:22
+msgid "Enable Maintenance Mode"
+msgstr ""
+
+#: admin/partials/admin-settings.php:25
+msgid "Yes"
+msgstr ""
+
+#: admin/partials/admin-settings.php:28
+msgid "No"
+msgstr ""
+
+#: admin/partials/admin-settings.php:35
+msgid "Show Dashboard Link"
+msgstr ""
+
+#: admin/partials/admin-settings.php:44
+msgid "Displays a link to the WordPress dashboard on the maintenance mode screen, allowing authorized users to log in"
+msgstr ""
+
+#: admin/partials/admin-settings.php:50
+msgid "Dashboard Link Text"
+msgstr ""
+
+#: admin/partials/admin-settings.php:52
+msgid "Dashboard link"
+msgstr ""
+
+#: admin/partials/admin-settings.php:58
+msgid "Dashboard Link Color"
+msgstr ""
+
+#: admin/partials/admin-settings.php:66
+msgid "Bypass Maintenance Mode for Logged-In Users"
+msgstr ""
+
+#: admin/partials/admin-settings.php:75
+msgid "Administrators are always excluded from maintenance mode"
+msgstr ""
+
+#: admin/partials/admin-settings.php:81
+msgid "Bypass Maintenance Mode for Bots"
+msgstr ""
+
+#: admin/partials/admin-settings.php:90
+msgid "Even if this option is unchecked, your SEO rankings will not be negatively affected, as we send a proper HTTP 503 status code to search engines and bots during maintenance mode"
+msgstr ""
+
+#: admin/partials/admin-settings.php:96
+msgid "Robots Meta Tag"
+msgstr ""
+
+#: admin/partials/admin-settings.php:110
+msgid "We recommend \"noindex, nofollow\" to prevent SEO issues and ranking drops"
+msgstr ""
+
+#: admin/partials/admin-settings.php:117
+msgid "Page Background Color"
+msgstr ""
+
+#: admin/partials/admin-settings.php:125
+msgid "Heading Tag"
+msgstr ""
+
+#: admin/partials/admin-settings.php:140
+msgid "Heading Text"
+msgstr ""
+
+#: admin/partials/admin-settings.php:142
+msgid "Enter heading text"
+msgstr ""
+
+#: admin/partials/admin-settings.php:148
+msgid "Heading Color"
+msgstr ""
+
+#: admin/partials/admin-settings.php:156
+msgid "Description Text"
+msgstr ""
+
+#: admin/partials/admin-settings.php:183
+msgid "Social Heading Tag"
+msgstr ""
+
+#: admin/partials/admin-settings.php:198
+msgid "Social Heading Text"
+msgstr ""
+
+#: admin/partials/admin-settings.php:206
+msgid "Social Heading Color"
+msgstr ""
+
+#: admin/partials/admin-settings.php:214
+msgid "Social Icons Color"
+msgstr ""
+
+#: admin/partials/admin-settings.php:221
+msgid "Social Network URLs"
+msgstr ""
+
+#: admin/partials/admin-settings.php:223
+msgid "Enter your page id at the end of each URL"
+msgstr ""
+
+#: admin/partials/admin-settings.php:227
+msgid "Facebook Page URL"
+msgstr ""
+
+#: admin/partials/admin-settings.php:228
+msgid "Instagram Page URL"
+msgstr ""
+
+#: admin/partials/admin-settings.php:229
+msgid "Linkedin Page URL"
+msgstr ""
+
+#: admin/partials/admin-settings.php:230
+msgid "Telegram Channel URL"
+msgstr ""
+
+#: admin/partials/admin-settings.php:231
+msgid "Twitter Page URL"
+msgstr ""
+
+#: admin/partials/admin-settings.php:232
+msgid "Youtube Channel URL"
+msgstr ""
+
+#: hz-maintenance-mode.php:40
+msgid "Settings"
+msgstr ""

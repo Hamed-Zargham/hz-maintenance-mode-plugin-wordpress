@@ -1,0 +1,37 @@
+.site-header, .site-title {
+  display: none;
+}
+#maintenance-mode-page {
+  text-align: center;
+  padding: 50px;
+}
+.rtl-font {
+  font-family: Tahoma, sans-serif !important;
+}
+#hz-heading-container {
+  margin-bottom: 60px;
+}
+#hz-dashboard-link {
+  margin-bottom: 50px;
+}
+#hz-maintenance-description {
+  margin-bottom: 50px;
+}
+/*
+ Maintenance description paragraph styling.
+ This sets the default color for maintenance description paragraphs.
+ Note: This color will be overridden when the user selects a color
+ via the color picker in the application interface.
+*/
+ #hz-maintenance-description p {
+  color: #F6F8D5;
+}
+#hz-social-heading-container {
+  margin-bottom: 30px;
+}
+#hz-social-networks-container a {
+  margin-left: 30px;
+}
+#hz-social-networks-container i {
+  font-size: 20px;
+}
