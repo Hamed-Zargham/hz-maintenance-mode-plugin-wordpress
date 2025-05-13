@@ -1,6 +1,6 @@
-# PHP Basic To-do App
+# HZ Maintenance mode Plugin
 
-**HZ Maintenance mode** is a lightweight plugin that allows you to put your site into maintenance mode.
+**HZ Maintenance mode** is a lightweight Wordpress plugin that allows you to put your site into maintenance mode.
 
 A fully customizable maintenance page will be displayed to visitors instead of your site's actual content.
 
