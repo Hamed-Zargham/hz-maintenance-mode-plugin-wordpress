@@ -3,7 +3,7 @@
  * Plugin Name:       HZ Maintenance Mode
  * Plugin URI:        https://github.com/Hamed-Zargham/hz-maintenance-mode-plugin-wordpress
  * Description:       Temporarily restrict public access to your site during updates, maintenance, or development.
- * Version:           1.0.0
+ * Version:           1.0.2
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Hamed Zargham
@@ -19,11 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'hz_maint_PLUGIN_ROOT', plugin_dir_path( __FILE__ ) );
-define( 'hz_maint_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'HZMAINT_PLUGIN_ROOT', plugin_dir_path( __FILE__ ) );
+define( 'HZMAINT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-require_once hz_maint_PLUGIN_ROOT . 'includes/settings.php';
-require_once hz_maint_PLUGIN_ROOT . 'includes/core.php';
+require_once HZMAINT_PLUGIN_ROOT . 'includes/settings.php';
+require_once HZMAINT_PLUGIN_ROOT . 'includes/core.php';
 
 /**
  * Adds a "Settings" link to the plugin's action links in the Plugins menu.
@@ -31,7 +31,7 @@ require_once hz_maint_PLUGIN_ROOT . 'includes/core.php';
  * @param array $links An array of plugin action links (e.g., "Deactivate", "Edit", etc)
  * @return array modified array of action links with the 'Settings' link added.
  */
-function hz_add_settings_link_to_plugin( $links ) {
+function hzmaint_add_settings_link_to_plugin( $links ) {
     // URL to the plugin's settings page
     $settings_url = admin_url( 'options-general.php?page=maintenance-mode' );
 
@@ -43,12 +43,7 @@ function hz_add_settings_link_to_plugin( $links ) {
 
     return $links;
 }
-add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'hz_add_settings_link_to_plugin' );
-
-// Loads the plugin's text domain for translation
-add_action( 'init', function () {
-    load_plugin_textdomain( 'hz-maintenance-mode', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-});
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'hzmaint_add_settings_link_to_plugin' );
 
 /**
  * Sets up default plugin options upon activation.
@@ -57,24 +52,24 @@ add_action( 'init', function () {
  *
  * @return void
  */
-function hz_activate_plugin() {
+function hzmaint_activate_plugin() {
     // Add default options on activation
     $default_options = [
-        'hz_maint_enabled'               => 'yes',
-        'hz_maint_show_dashboard_link'   => 'yes',
-        'hz_maint_dashboard_link_color'  => 'F6F8D5',
-        'hz_maint_page_bkg_color'        => '#205781',
-        'hz_maint_heading_tag'           => 'h1',
-        'hz_maint_heading_color'         => '#F6F8D5',
-        'hz_maint_bypass_logged_in'      => 'yes',
-        'hz_maint_bypass_bots'           => 'yes',
-        'hz_maint_robots_meta_tag'       => 'noindex, nofollow',
-        'hz_maint_social_heading_tag'    => 'h6',
-        'hz_maint_social_heading_color'  => '#F6F8D5',
-        'hz_maint_social_icons_color'    => '#F6F8D5',
+        'hzmaint_enabled'               => 'yes',
+        'hzmaint_show_dashboard_link'   => 'yes',
+        'hzmaint_dashboard_link_color'  => '#F6F8D5',
+        'hzmaint_page_bkg_color'        => '#205781',
+        'hzmaint_heading_tag'           => 'h1',
+        'hzmaint_heading_color'         => '#F6F8D5',
+        'hzmaint_bypass_logged_in'      => 'yes',
+        'hzmaint_bypass_bots'           => 'yes',
+        'hzmaint_robots_meta_tag'       => 'noindex, nofollow',
+        'hzmaint_social_heading_tag'    => 'h6',
+        'hzmaint_social_heading_color'  => '#F6F8D5',
+        'hzmaint_social_icons_color'    => '#F6F8D5',
 
         // Adds default social network URLs as a serialized array
-        'hz_maint_social_urls' => array(
+        'hzmaint_social_urls' => array(
             'facebook'  => 'https://facebook.com/',
             'instagram' => 'https://instagram.com/',
             'linkedin'  => 'https://linkedin.com/',
@@ -88,13 +83,13 @@ function hz_activate_plugin() {
    $is_persian = ( substr( get_bloginfo( 'language' ), 0, 2 ) === 'fa' );
 
    // Set certain default options based on WordPress language
-   $default_options['hz_maint_heading_text'] = ( $is_persian === true ) ? 'حالت تعمیر و نگهداری' : 'Site Under Maintenance';
+   $default_options['hzmaint_heading_text'] = ( $is_persian === true ) ? 'حالت تعمیر و نگهداری' : 'Site Under Maintenance';
 
-   $default_options['hz_maint_desc_text'] = ( $is_persian === true ) ? 'در حال انجام تغییراتی در سایت هستیم و تا دقایقی دیگر در دسترس قرار خواهد گرفت. با تشکر از شکیبایی شما' : 'We are currently performing scheduled maintenance';
+   $default_options['hzmaint_desc_text'] = ( $is_persian === true ) ? 'در حال انجام تغییراتی در سایت هستیم و تا دقایقی دیگر در دسترس قرار خواهد گرفت. با تشکر از شکیبایی شما' : 'We are currently performing scheduled maintenance';
 
-   $default_options['hz_maint_social_heading_text'] = ( $is_persian === true ) ? 'شبکه های اجتماعی ما' : 'Our Social Networks';
+   $default_options['hzmaint_social_heading_text'] = ( $is_persian === true ) ? 'شبکه های اجتماعی ما' : 'Our Social Networks';
 
-   $default_options['hz_maint_dashboard_link_text'] = ( $is_persian === true ) ? 'لینک ورود به پیشخوان' : 'Dashboard Link Text';
+   $default_options['hzmaint_dashboard_link_text'] = ( $is_persian === true ) ? 'لینک ورود به پیشخوان' : 'Dashboard Link Text';
 
     // Loop through each option and add it only if it doesn't already exist
     foreach ( $default_options as $option_name => $default_value ) {
@@ -105,19 +100,19 @@ function hz_activate_plugin() {
 }
 
 // Activation hook
-register_activation_hook( __FILE__ , 'hz_activate_plugin' );
+register_activation_hook( __FILE__ , 'hzmaint_activate_plugin' );
 
 /**
  * Function to run on plugin deactivation.
  *
  * Currently not in use, but kept for potential future functionality.
  */
-function hz_deactivate_plugin() {
+function hzmaint_deactivate_plugin() {
     // No actions performed during deactivation at this time.
 }
 
 // Deactivation hook
-register_deactivation_hook( __FILE__ , 'hz_deactivate_plugin' );
+register_deactivation_hook( __FILE__ , 'hzmaint_deactivate_plugin' );
 
 // Enqueues admin scripts and styles for the maintenance mode settings page
 add_action( 'admin_enqueue_scripts', function ( $hook ) {
@@ -132,7 +127,7 @@ add_action( 'admin_enqueue_scripts', function ( $hook ) {
 
     // Enqueue custom script to initialize the color picker
     wp_enqueue_script(
-        'hz-maint-plugin-admin-js',
+        'hzmaint-plugin-admin-js',
         plugin_dir_url( __FILE__ ) . 'admin/js/plugin-admin.js',
         array( 'wp-color-picker' ),
         '1.0.0',
@@ -141,7 +136,7 @@ add_action( 'admin_enqueue_scripts', function ( $hook ) {
 
     // Enqueue plugin admin CSS
     wp_enqueue_style(
-        'hz-maint-plugin-admin-css',
+        'hzmaint-plugin-admin-css',
         plugin_dir_url( __FILE__ ) . 'admin/css/plugin-admin.css',
         array(),
         '1.0.0',

@@ -21,32 +21,32 @@
   border: 1px solid #ccc;
   padding: 15px;
 }
-.hz-padding-bottom-0 {
+.hzmaint-padding-bottom-0 {
   padding-bottom:0 !important;
 }
-.hz-note-td {
+.hzmaint-note-td {
   color: gray;
   padding-top: 0;
   line-height: 1;
 }
-#hz-social-network-urls-note-p {
+#hzmaint-social-network-urls-note-p {
   color: gray;
   text-align: center
 }
-.social-network-label {
+.hzmaint-social-network-label {
   display: inline-block;
   width: 170px;
 }
-.hz-social-network-input {
+.hzmaint-social-network-input {
   width: 50%;
   margin-top: 5px;
   direction: ltr
 }
-#hz-plugin-developer-credit {
+#hzmaint-plugin-developer-credit {
   color:#777;
   margin-top:20px;
   font-size:0.9em;
 }
-#hz-plugin-developer-credit a {
+#hzmaint-plugin-developer-credit a {
   text-decoration: none;
 }

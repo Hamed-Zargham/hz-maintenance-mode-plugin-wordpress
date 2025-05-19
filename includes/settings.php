@@ -1,5 +1,10 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Sanitizes an array of social media URLs.
  *
@@ -9,7 +14,7 @@
  * @param array $urls an array of URLs to sanitize.
  * @return array an array of sanitized URLs. Returns empty array if input is not an array.
  */
-function hz_sanitize_social_urls( $urls ) {
+function hzmaint_sanitize_social_urls( $urls ) {
     if ( ! is_array( $urls ) ) {
         return array();
     }
@@ -31,7 +36,7 @@ add_action( 'admin_init', function () {
     // Maintenance Mode Enabled
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_enabled',
+        'hzmaint_enabled',
         array(
             'sanitize_callback' => 'sanitize_text_field',
         )
@@ -40,7 +45,7 @@ add_action( 'admin_init', function () {
     // Show Dashboard Link
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_show_dashboard_link',
+        'hzmaint_show_dashboard_link',
         array(
             'sanitize_callback' => 'sanitize_text_field',
         )
@@ -49,7 +54,7 @@ add_action( 'admin_init', function () {
     // Dashboard Link Text
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_dashboard_link_text',
+        'hzmaint_dashboard_link_text',
         array(
             'sanitize_callback' => 'sanitize_text_field',
         )
@@ -58,7 +63,7 @@ add_action( 'admin_init', function () {
     // Dashboard Link Color
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_dashboard_link_color',
+        'hzmaint_dashboard_link_color',
         array(
             'sanitize_callback' => 'sanitize_hex_color',
         )
@@ -67,7 +72,7 @@ add_action( 'admin_init', function () {
     // Bypass Logged-In Users
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_bypass_logged_in',
+        'hzmaint_bypass_logged_in',
         array(
             'sanitize_callback' => 'sanitize_text_field',
         )
@@ -76,7 +81,7 @@ add_action( 'admin_init', function () {
     // Bypass Bots
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_bypass_bots',
+        'hzmaint_bypass_bots',
         array(
             'sanitize_callback' => 'sanitize_text_field',
         )
@@ -85,7 +90,7 @@ add_action( 'admin_init', function () {
     // Robots Meta tag
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_robots_meta_tag',
+        'hzmaint_robots_meta_tag',
         array(
             'sanitize_callback' => 'sanitize_text_field',
         )
@@ -94,7 +99,7 @@ add_action( 'admin_init', function () {
     // Page Background Color
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_page_bkg_color',
+        'hzmaint_page_bkg_color',
         array(
             'sanitize_callback' => 'sanitize_hex_color',
         )
@@ -103,7 +108,7 @@ add_action( 'admin_init', function () {
     // Heading Tag
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_heading_tag',
+        'hzmaint_heading_tag',
         array(
             'sanitize_callback' => 'sanitize_html_class',
         )
@@ -112,7 +117,7 @@ add_action( 'admin_init', function () {
     // Heading Text
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_heading_text',
+        'hzmaint_heading_text',
         array(
             'sanitize_callback' => 'sanitize_text_field',
         )
@@ -121,7 +126,7 @@ add_action( 'admin_init', function () {
     // Heading Color
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_heading_color',
+        'hzmaint_heading_color',
         array(
             'sanitize_callback' => 'sanitize_hex_color',
         )
@@ -130,7 +135,7 @@ add_action( 'admin_init', function () {
     // Description Text (Rich Text)
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_desc_text',
+        'hzmaint_desc_text',
         array(
             'sanitize_callback' => 'wp_kses_post', // Allow safe HTML tags for rich text content
         )
@@ -139,7 +144,7 @@ add_action( 'admin_init', function () {
     // Social Heading Tag
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_social_heading_tag',
+        'hzmaint_social_heading_tag',
         array(
             'sanitize_callback' => 'sanitize_html_class',
         )
@@ -148,7 +153,7 @@ add_action( 'admin_init', function () {
     // Social Heading Text
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_social_heading_text',
+        'hzmaint_social_heading_text',
         array(
             'sanitize_callback' => 'sanitize_text_field',
         )
@@ -157,7 +162,7 @@ add_action( 'admin_init', function () {
     // Social Heading Color
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_social_heading_color',
+        'hzmaint_social_heading_color',
         array(
             'sanitize_callback' => 'sanitize_hex_color',
         )
@@ -166,7 +171,7 @@ add_action( 'admin_init', function () {
     // Social Icons Color
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_social_icons_color',
+        'hzmaint_social_icons_color',
         array(
             'sanitize_callback' => 'sanitize_hex_color',
         )
@@ -178,9 +183,9 @@ add_action( 'admin_init', function () {
     */
     register_setting(
         'maintenance_mode_group',
-        'hz_maint_social_urls',
+        'hzmaint_social_urls',
         array(
-            'sanitize_callback' => 'hz_sanitize_social_urls', // Custom sanitization function
+            'sanitize_callback' => 'hzmaint_sanitize_social_urls', // Custom sanitization function
         )
     );
 });
@@ -190,7 +195,7 @@ add_action( 'admin_init', function () {
  *
  * @return bool True if it's a bot, false otherwise.
  */
-function hz_maint_is_bot() {
+function hzmaint_is_bot() {
     $default_bots = array(
         'Ahrefs'          => 'AhrefsBot',
         'AltaVista'       => 'Altavista',
@@ -219,14 +224,14 @@ function hz_maint_is_bot() {
      * @param string[] $default_bots An array of default bots to check against.
      * @return string[] Filtered array of bot identifiers to recognize during maintenance mode.
      */
-    $bots = apply_filters( 'hz_maint_bots', $default_bots );
+    $bots = apply_filters( 'hzmaint_bots', $default_bots );
 
     if ( ! is_array( $bots ) ) {
         $bots = [];
     }
 
     // Edge case: Empty user agent (e.g., CLI requests)
-    $user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])) : '';
+    $user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
 
 
 
@@ -256,8 +261,8 @@ function hz_maint_is_bot() {
  *
  * @return void
  */
-function render_maintenance_mode_settings_page() {
-    include_once hz_maint_PLUGIN_ROOT . 'admin/partials/admin-settings.php';
+function hzmaint_render_maintenance_mode_settings_page() {
+    include_once HZMAINT_PLUGIN_ROOT . 'admin/partials/admin-settings.php';
 }
 
 
@@ -269,15 +274,15 @@ function render_maintenance_mode_settings_page() {
  *
  * @return void
  */
- function register_maintenance_mode_settings_page() {
+ function hzmaint_register_maintenance_mode_settings_page() {
     add_options_page(
         'Maintenance Mode Settings', // Page title
         'HZ Maintenance Mode',       // Menu title
         'manage_options',            // Capability required to access the page
         'maintenance-mode',          // Menu slug
-        'render_maintenance_mode_settings_page' // Callback function to render the page
+        'hzmaint_render_maintenance_mode_settings_page' // Callback function to render the page
     );
 }
 
 // Adds settings page to the WordPress admin menu
-add_action( 'admin_menu', 'register_maintenance_mode_settings_page' );
+add_action( 'admin_menu', 'hzmaint_register_maintenance_mode_settings_page' );
