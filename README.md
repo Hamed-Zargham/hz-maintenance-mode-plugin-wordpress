@@ -6,6 +6,8 @@ A fully customizable maintenance page will be displayed to visitors instead of y
 
 Additionally, the plugin sends a "503 Service Temporarily Unavailable" HTTP status code to visitors' browsers to prevent SEO ranking issues.
 
+[![View on WordPress.org](https://img.shields.io/badge/WordPress.org-Plugin-blue )](https://wordpress.org/plugins/hz-maintenance-mode/ )
+
 ---
 
 ## Features
